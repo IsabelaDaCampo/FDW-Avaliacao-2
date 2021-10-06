@@ -1,0 +1,89 @@
+<!doctype html>
+<html ng-app="theDogShow" ng-controller="myController" ng-init="initData()">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="./images/paw.png" type="image/x-icon">
+
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light container">
+      <div class="container-fluid">
+        <a class="navbar-brand lead" href="#">{{ title }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Top 10 Breeds</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Just Some Photos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col" ng-repeat="i in breed">
+          {{ i.name }}
+          <button type="button" class="btn btn-sm btn-outline-secondary btn-lg" ng-click="searchBreed(i.name)">More</button>
+        </div>
+      </div>
+       
+      <div ng-repeat="i in searchBreeds">
+        <div>Nome: {{ i.name }}</div>
+        <div>Group: {{ i.bred_for }}</div>
+        <div>Life: {{ i.life_span }}</div>
+        <div>Temperament: {{ i.temperament }}</div>
+        <div>
+          <img ng-src="{{ cdnImage + i.reference_image_id + '.jpg' }}" alt="">
+        </div>
+      </div>
+
+      <!-- <div>
+        Top 10 - <button type="button" class="btn btn-sm btn-outline-secondary btn-lg" ng-click="topImages()">Refresh</button>
+        <div  ng-repeat="i in topImage">
+          <img ng-src="{{ i.url }}" alt="">
+        </div>
+      </div> -->
+
+
+      <div class="">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-muted">© 2021 - Fundamentos ao Desenvolvimento Web</p>
+      
+          <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+      
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="https://github.com/IsabelaDaCampo" target="_blank" class="nav-link px-2 text-muted">Isabela Maria Da Campo</a></li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+
+    <script src="./script/angular.js"></script>
+    <script src="./script/app.js"></script>
+
+  </body>
+</html>
