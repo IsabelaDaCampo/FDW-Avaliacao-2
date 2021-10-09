@@ -1,9 +1,9 @@
-var app = angular.module('theDogShow', []);
+var app = angular.module('theDogaAPI', []);
 
 app.controller('myController', myController);
 
 function myController($scope, $http) {
-  $scope.title = "THE DOG SHOW";
+  $scope.title = "THE DOG API";
   $scope.apiKey = 'e7a10eb5-1c5c-43fa-b0fb-363351d6cf4e'
   $scope.url = 'https://api.thedogapi.com/v1/';
   $scope.image = 'https://api.thedogapi.com/v1/images/';
@@ -16,7 +16,7 @@ function myController($scope, $http) {
   $scope.listBreeds = function () {
     $http
       .get(
-        $scope.url + 'breeds?limit=10'
+        $scope.url + 'breeds?limit=20'
       )
       .success(function (dados) {
         console.log("breed", dados)
