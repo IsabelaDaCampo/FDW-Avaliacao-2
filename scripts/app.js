@@ -13,13 +13,22 @@ function myController($scope, $http) {
   $scope.searchBreeds = [];
   $scope.topImage = [];
 
+  $scope.topImages = function () {
+    $http
+      .get(
+        $scope.url + 'images/search?limit=10'
+      )
+      .success(function (dados) {
+        $scope.topImage = dados;
+     });
+  };
+
   $scope.listBreeds = function () {
     $http
       .get(
         $scope.url + 'breeds?limit=20'
       )
       .success(function (dados) {
-        console.log("breed", dados)
         $scope.breed = dados;
      });
   };
@@ -30,24 +39,12 @@ function myController($scope, $http) {
         $scope.url + 'breeds/search?q=' + nameBreed
       )
       .success(function (dados) {
-        console.log("search breed", dados)
         $scope.searchBreeds = dados;
      });
   };
 
-  $scope.topImages = function () {
-    $http
-      .get(
-        $scope.url + 'images/search?limit=10'
-      )
-      .success(function (dados) {
-        console.log("top images", dados)
-        $scope.topImage = dados;
-     });
-  };
-
   $scope.initData = function () {
-    $scope.listBreeds();
     $scope.topImages();
+    $scope.listBreeds();
   };
 }

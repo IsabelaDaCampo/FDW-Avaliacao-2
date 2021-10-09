@@ -1,5 +1,5 @@
-#Avaliação 2 - Fundamentos ao Desenvolvimento Web
+#Avaliação 2 - Fundamentos ao Desenvolvimento Web - The Dog API
 
-gh-pages: --colocar
+- Integração com no pelo menos 3 métodos da API
 
-- Integração com no mínimo 3 métodos da API
+https://thedogapi.com/
